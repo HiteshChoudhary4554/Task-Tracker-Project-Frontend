@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function TaskCardList({ date = "", title, onClick }) {
-  const taskDate = new Date(date);
-  const today = new Date();
+  const [expire, setExpire] = useState(null);
+  useEffect(() => {
+    function fetchDate(date) {
+      const taskDate = new Date(date);
+      const today = new Date();
 
-  taskDate.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
+      taskDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
 
-  const isExpired = taskDate >= today;
-  const expire = isExpired ? "#d0f325" : "#e54a4a";
+      const isExpired = taskDate >= today;
+      const expiren = isExpired ? "#d0f325" : "#e54a4a";
+      setExpire(expiren);
+    }
+    fetchDate(date);
+  }, [date]);
   // bg-[#292a2e]
   return (
     <div
