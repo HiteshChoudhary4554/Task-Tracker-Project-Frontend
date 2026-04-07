@@ -40,7 +40,7 @@ function CohortTask() {
                 date={task.dueDate}       
                 title={task.title}
                 onClick={() => {
-                  navigate("/cohort-task/");
+                  navigate("/task/cohort-task/");
                 }}
               />
             </div>
