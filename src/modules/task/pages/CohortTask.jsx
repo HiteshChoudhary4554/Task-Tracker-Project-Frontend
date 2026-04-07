@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React from "react";
 import Column from "../../../common/components/Column.jsx";
 import TaskCard from "../components/TaskCard.jsx";
 import { useSelector, useDispatch } from "react-redux";
@@ -28,23 +28,7 @@ function CohortTask() {
     navigate("/", { replace: true });
   }
 
-  // const cohortTasks = useSelector((state) => state.task.cohort);
-
-
-  const [cohortTasks, setCohortTasks] = useState([]);
-    // const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      async function fetchTasks() {
-        const tasks = await Task.cohortTask();
-        if (tasks.length > 0) {
-          setCohortTasks(tasks);
-          // dispatch(addCohort(tasks));
-        }
-        // setLoading(false);
-      }
-      fetchTasks();
-    }, [dispatch]);
+  const cohortTasks = useSelector((state) => state.task.cohort);
 
   return (
     <div className="flex-1 h-full">
