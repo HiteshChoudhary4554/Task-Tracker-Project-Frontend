@@ -17,10 +17,11 @@ function TaskCardList({ date = "", title, onClick }) {
     fetchDate(date);
   }, [date]);
   // bg-[#292a2e]
+  // bg-[${expire}]
   return (
     <div
       onClick={onClick}
-      className={`w-full rounded-2xl  shadow border-gray-300 bg-[${expire}] px-6 py-4`}
+      className={`w-full rounded-2xl  shadow border-gray-300 bg-[#d0f325] px-6 py-4`}
     >
       <h2 className="text-[16px] font-semibold text-black">{title}</h2>
     </div>
